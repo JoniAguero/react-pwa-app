@@ -13,9 +13,10 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "serve ./build -s -p ${PORT:-4000}",
+    "start": "serve ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "go": "npm run build && npm start"
   }
 }

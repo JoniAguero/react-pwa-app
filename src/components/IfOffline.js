@@ -1,3 +1,4 @@
+/* Componente que se muestra cuándo estamos Offline */
 import React from 'react'
 
 export default class IfOffline extends React.Component {

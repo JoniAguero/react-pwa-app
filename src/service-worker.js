@@ -31,4 +31,5 @@ workbox.routing.registerRoute(/^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)
   'GET')
 
 //network first para todas las https con método get
+// Es la estrategia seleccionada -> existe otras (ver documentacion)
 workbox.routing.registerRoute(/^https?.*/, workbox.strategies.networkFirst(), 'GET')

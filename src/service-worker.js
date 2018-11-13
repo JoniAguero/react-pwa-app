@@ -12,6 +12,9 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 // App Shell
 workbox.routing.registerNavigationRoute('/index.html')
 
+/* Para que googleAnalytics funcione offline */
+workbox.googleAnalytics.initialize();
+
 // La API usa Stale While Revalidate para mayor velocidad
   /* staleWhileRevalidate -> Va a la chaché y a la red al mismo tiempo, es obvio que caché será más rápido, por eso trae primero el recurso desde el caché pero al regresar de la red con una actualización de dicho recurso lo guarda en caché y actualiza la UI. */
 

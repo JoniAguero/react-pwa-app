@@ -13,6 +13,8 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 workbox.routing.registerNavigationRoute('/index.html')
 
 // La API usa Stale While Revalidate para mayor velocidad
+  /* staleWhileRevalidate -> Va a la chaché y a la red al mismo tiempo, es obvio que caché será más rápido, por eso trae primero el recurso desde el caché pero al regresar de la red con una actualización de dicho recurso lo guarda en caché y actualiza la UI. */
+
 workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/, workbox.strategies.staleWhileRevalidate(),
  'GET')
 
@@ -27,13 +29,6 @@ workbox.routing.registerRoute(/^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)
     ]
   }),
   'GET')
-
-  workbox.routing.registerNavigationRoute('/index.html')
-
-  /* staleWhileRevalidate -> Va a la chaché y a la red al mismo tiempo, es obvio que caché será más rápido, por eso trae primero el recurso desde el caché pero al regresar de la red con una actualización de dicho recurso lo guarda en caché y actualiza la UI. */
-
-  workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/,
-    workbox.strategies.staleWhileRevalidate(), 'GET')
 
 // Todo lo demás usa Network First
 // Estrategia seleccionada por defecto
